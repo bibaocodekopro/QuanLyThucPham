@@ -5,8 +5,6 @@
 package GUI;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Toolkit;
 
 /**
  *
@@ -20,12 +18,6 @@ public class Main_Menu extends javax.swing.JFrame {
     Color DefaultColor, ClickedColor;
     public Main_Menu() {
         initComponents();
-       
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-        this.setMinimumSize(new Dimension(1200, 580));
-        
         DefaultColor = new Color(0,0,0);
         ClickedColor = new Color(13,36,52);
         
@@ -64,19 +56,10 @@ public class Main_Menu extends javax.swing.JFrame {
         lb_thanhvien = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        lb_close = new javax.swing.JLabel();
-        lb_minimize = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         container = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBounds(new java.awt.Rectangle(0, 0, 1200, 675));
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(1200, 675));
-        setMinimumSize(new java.awt.Dimension(1200, 675));
-        setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1200, 675));
-        setResizable(false);
-        setSize(new java.awt.Dimension(1200, 675));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         MenuBar.setBackground(new java.awt.Color(0, 0, 0));
@@ -297,7 +280,7 @@ public class Main_Menu extends javax.swing.JFrame {
                 .addComponent(pnl_thongke, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnl_nhaphang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout MenuBarLayout = new javax.swing.GroupLayout(MenuBar);
@@ -319,7 +302,7 @@ public class Main_Menu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(MenuBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 130, 580));
+        getContentPane().add(MenuBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 130, 560));
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -328,62 +311,43 @@ public class Main_Menu extends javax.swing.JFrame {
         jLabel2.setText("Vegetable Fresh");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 280, 40));
 
-        lb_close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/close.png"))); // NOI18N
-        lb_close.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lb_closeMouseClicked(evt);
-            }
-        });
-        jPanel1.add(lb_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 30, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/close.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 20, -1, -1));
 
-        lb_minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/minimize.png"))); // NOI18N
-        lb_minimize.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lb_minimizeMouseClicked(evt);
-            }
-        });
-        jPanel1.add(lb_minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 30, -1, -1));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 80));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 80));
 
         javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
         container.setLayout(containerLayout);
         containerLayout.setHorizontalGroup(
             containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1060, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
         containerLayout.setVerticalGroup(
             containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 580, Short.MAX_VALUE)
+            .addGap(0, 550, Short.MAX_VALUE)
         );
 
-        getContentPane().add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 1060, 580));
+        getContentPane().add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 720, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void lb_banhangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_banhangMouseClicked
         // TODO add your handling code here:
-        BanHang_GUI bh = new BanHang_GUI();
-        container.removeAll();
-        container.add(bh).setVisible(true);
-        
+        SanPham_GUI sp = new SanPham_GUI();
+        container.add(sp).setVisible(true);
         pnl_banhang.setBackground(ClickedColor);
         pnl_khuyenmai.setBackground(DefaultColor);
         pnl_nhaphang.setBackground(DefaultColor);
         pnl_sanpham.setBackground(DefaultColor);
         pnl_thanhvien.setBackground(DefaultColor);
         pnl_thongke.setBackground(DefaultColor);
-        
-        
     }//GEN-LAST:event_lb_banhangMouseClicked
 
     private void lb_khuyenmaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_khuyenmaiMouseClicked
         // TODO add your handling code here:
-        container.removeAll();
-        KhuyenMai_GUI km = new KhuyenMai_GUI();
-        
-        container.add(km).setVisible(true);
+        SanPham_GUI sp = new SanPham_GUI();
+        container.add(sp).setVisible(true);
         pnl_khuyenmai.setBackground(ClickedColor);
         pnl_banhang.setBackground(DefaultColor);
         pnl_nhaphang.setBackground(DefaultColor);
@@ -394,10 +358,6 @@ public class Main_Menu extends javax.swing.JFrame {
 
     private void lb_sanphamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_sanphamMouseClicked
         // TODO add your handling code here:
-        container.removeAll();
-        SanPham_GUI sp = new SanPham_GUI();
-        
-        container.add(sp).setVisible(true);
         pnl_khuyenmai.setBackground(DefaultColor);
         pnl_banhang.setBackground(DefaultColor);
         pnl_nhaphang.setBackground(DefaultColor);
@@ -435,16 +395,6 @@ public class Main_Menu extends javax.swing.JFrame {
         pnl_thanhvien.setBackground(DefaultColor);
         pnl_thongke.setBackground(DefaultColor);
     }//GEN-LAST:event_lb_nhaphangMouseClicked
-
-    private void lb_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_closeMouseClicked
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_lb_closeMouseClicked
-
-    private void lb_minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_minimizeMouseClicked
-        // TODO add your handling code here:
-        this.setState(this.ICONIFIED);
-    }//GEN-LAST:event_lb_minimizeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -486,12 +436,11 @@ public class Main_Menu extends javax.swing.JFrame {
     private javax.swing.JDesktopPane container;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lb_banhang;
-    private javax.swing.JLabel lb_close;
     private javax.swing.JLabel lb_khuyenmai;
-    private javax.swing.JLabel lb_minimize;
     private javax.swing.JLabel lb_nhaphang;
     private javax.swing.JLabel lb_sanpham;
     private javax.swing.JLabel lb_thanhvien;
